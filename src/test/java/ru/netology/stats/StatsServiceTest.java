@@ -11,7 +11,7 @@ public class StatsServiceTest {
 
         StatsService service = new StatsService();
         int[] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int actual = service.TotalSum(values);
+        int actual = service.totalSum(values);
         int expected = 180;
         System.out.println(actual);
         assertEquals(expected, actual);
@@ -21,7 +21,7 @@ public class StatsServiceTest {
     void shouldAVGMonthSum() {
         StatsService service = new StatsService();
         int[] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int actual = service.AVGMonthSum(values);
+        int actual = service.avgMonthSum(values);
         int expected = 15;
         System.out.println(actual);
         assertEquals(expected, actual);

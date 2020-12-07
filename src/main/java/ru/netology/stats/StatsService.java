@@ -2,7 +2,7 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int TotalSum(int[] values) {
+    public int totalSum(int[] values) {
 
         int sum = 0;
 
@@ -15,17 +15,17 @@ public class StatsService {
 
     }
 
-    public int AVGMonthSum(int[] values) {
+    public int avgMonthSum(int[] values) {
 
-        int sumSell = 0;
+
         int numberOfMonth = 0;
         int avgSellInMonth = 0;
 
         for (int value : values) {
-            sumSell = sumSell + value;
+
             numberOfMonth = numberOfMonth + 1;
 
-            avgSellInMonth = sumSell / numberOfMonth;
+            avgSellInMonth = totalSum(values) / numberOfMonth;
 
         }
         return avgSellInMonth;
@@ -70,25 +70,13 @@ public class StatsService {
     }
 
 
-
     public int minAvgMonthCount(int[] values) {
 
-        int sumSell = 0;//сумма продаж
-        int numberOfMonth = 0;//номер месяца
-        int avgCountOfMonth = 0;//Кол-во месяцев, в которых продажи были ниже среднего
-        int avgSellInMonth = 0;//средняя сумма продаж в месяц
-
-        for (int value : values) {
-            sumSell = sumSell + value;
-            numberOfMonth = numberOfMonth + 1;
-
-            avgSellInMonth = sumSell / numberOfMonth;
-        }
+        int avgCountOfMonth = 0;
 
         for (int value : values) {
 
-
-            if (value < avgSellInMonth) {
+            if (value < avgMonthSum(values)) {
                 avgCountOfMonth += 1;
 
             }
@@ -99,22 +87,11 @@ public class StatsService {
 
     public int maxAvgMonthCount(int[] values) {
 
-        int sumSell = 0;//сумма продаж
-        int numberOfMonth = 0;//номер месяца
-        int avgCountOfMonth = 0;//Кол-во месяцев, в которых продажи были ниже среднего
-        int avgSellInMonth = 0;//средняя сумма продаж в месяц
-
-        for (int value : values) {
-            sumSell = sumSell + value;
-            numberOfMonth = numberOfMonth + 1;
-
-            avgSellInMonth = sumSell / numberOfMonth;
-        }
+        int avgCountOfMonth = 0;
 
         for (int value : values) {
 
-
-            if (value > avgSellInMonth) {
+            if (value > avgMonthSum(values)) {
                 avgCountOfMonth += 1;
 
             }
