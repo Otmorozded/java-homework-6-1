@@ -16,21 +16,8 @@ public class StatsService {
     }
 
     public int avgMonthSum(int[] values) {
-
-
-        int numberOfMonth = 0;
-        int avgSellInMonth = 0;
-
-        for (int value : values) {
-
-            numberOfMonth = numberOfMonth + 1;
-
-            avgSellInMonth = totalSum(values) / numberOfMonth;
-
-        }
+        int avgSellInMonth = totalSum(values) / values.length;
         return avgSellInMonth;
-
-
     }
 
     public int maxSellMonth(int[] values) {
@@ -71,31 +58,23 @@ public class StatsService {
 
 
     public int minAvgMonthCount(int[] values) {
-
         int avgCountOfMonth = 0;
-
+        int avg = avgMonthSum(values);
         for (int value : values) {
-
-            if (value < avgMonthSum(values)) {
+            if (value < avg) {
                 avgCountOfMonth += 1;
-
             }
-
         }
         return avgCountOfMonth;
     }
 
     public int maxAvgMonthCount(int[] values) {
-
         int avgCountOfMonth = 0;
-
+        int avg = avgMonthSum(values);
         for (int value : values) {
-
-            if (value > avgMonthSum(values)) {
+            if (value > avg) {
                 avgCountOfMonth += 1;
-
             }
-
         }
         return avgCountOfMonth;
     }
